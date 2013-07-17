@@ -39,4 +39,19 @@
     [baseDB closeDB];
 }
 
+
+
++(NSArray *)allCarInfo{
+
+    BaseDB *baseDB = [[BaseDB alloc] init];
+    [baseDB openDB];
+    
+    NSArray *array = [baseDB selectAll:@"carInfo"];
+    
+    [baseDB closeDB];
+    
+    return array;
+}
+
+
 @end
