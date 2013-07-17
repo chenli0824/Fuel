@@ -8,6 +8,7 @@
 
 #import "CLAddCarViewController.h"
 #import "BaseDB.h"
+#import "CLCarManager.h"
 
 @interface CLAddCarViewController ()
 
@@ -30,18 +31,12 @@
 
 
 - (IBAction)saveAction:(id)sender {
-    BaseDB *baseDB = [[BaseDB alloc] init];
-    [baseDB openDB];
-    if (![baseDB tableExists:@"carInfo"]) {
-        [baseDB createTable:@"carInfo" columns:@"ID INTEGER PRIMARY KEY,name TEXT,mileage TEXT,login TEXT"];
-    }
     
-    [baseDB insertTableValues:@"carInfo" Values:[NSDictionary dictionaryWithObjectsAndKeys:@"NULL",@"ID",
-                                                                                            _nameTypeField.text,@"name",
-                                                                                            _mileageField.text,@"mileage",
-                                                                                                            @"YES",@"login",nil]];
-    [baseDB closeDB];
-    
+    [CLCarManager saveNewCarInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"NULL",@"ID",
+                                  _nameTypeField.text,@"name",
+                                  _mileageField.text,@"mileage",
+                                  @"YES",@"login",nil]];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad

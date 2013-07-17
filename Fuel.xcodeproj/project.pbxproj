@@ -25,6 +25,7 @@
 		18D7422F1793BCB200D6ADDB /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D7422C1793BCB200D6ADDB /* FMResultSet.m */; };
 		18D742331793BCB700D6ADDB /* BaseDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D742321793BCB700D6ADDB /* BaseDB.m */; };
 		18D742351793BCC500D6ADDB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D742341793BCC500D6ADDB /* libsqlite3.0.dylib */; };
+		18EB0D5817963E11008E45AC /* CLCarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB0D5717963E11008E45AC /* CLCarManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		18D742311793BCB700D6ADDB /* BaseDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDB.h; sourceTree = "<group>"; };
 		18D742321793BCB700D6ADDB /* BaseDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDB.m; sourceTree = "<group>"; };
 		18D742341793BCC500D6ADDB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		18EB0D5617963E11008E45AC /* CLCarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLCarManager.h; sourceTree = "<group>"; };
+		18EB0D5717963E11008E45AC /* CLCarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLCarManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 			children = (
 				18D742301793BCB700D6ADDB /* BaseDB */,
 				18D742261793BCB200D6ADDB /* FMDB */,
+				18EB0D5617963E11008E45AC /* CLCarManager.h */,
+				18EB0D5717963E11008E45AC /* CLCarManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				18D7422E1793BCB200D6ADDB /* FMDatabaseAdditions.m in Sources */,
 				18D7422F1793BCB200D6ADDB /* FMResultSet.m in Sources */,
 				18D742331793BCB700D6ADDB /* BaseDB.m in Sources */,
+				18EB0D5817963E11008E45AC /* CLCarManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +385,7 @@
 				18D7421D1793A06700D6ADDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

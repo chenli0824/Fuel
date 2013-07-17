@@ -9,6 +9,7 @@
 #import "CLViewController.h"
 #import "CLAddCarViewController.h"
 #import "BaseDB.h"
+#import "CLCarManager.h"
 
 @interface CLViewController (){
     NSMutableDictionary *dict;
@@ -27,14 +28,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    BaseDB *baseDB = [[BaseDB alloc] init];
-    [baseDB openDB];
-     
-//    for (NSDictionary *d in [baseDB selectAll:@"carInfo"]) {
-//        [dict dictionaryWithValuesForKeys:[baseDB selectAll:@"carInfo"]];
-//    }
-    [baseDB closeDB];
-    NSLog(@"dict:%@",dict);
+    NSLog(@"dict:%@",[CLCarManager readCurrCarInfo]);
+    [dict addEntriesFromDictionary:[CLCarManager readCurrCarInfo]];
     self.mileageLabel.text = [NSString stringWithFormat:@"%@ kM",dict[@"mileage"]];
     self.nameTypeLabel.text = dict[@"name"];
     [super viewWillAppear:animated];

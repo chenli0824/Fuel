@@ -144,7 +144,7 @@
 
 
 
--(NSMutableArray *)selectForColumn:(NSString *)columnName value:(NSString *)v tableName:(NSString *)name{
+-(id)selectForColumn:(NSString *)columnName value:(NSString *)v tableName:(NSString *)name{
     NSString *sql=[NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@='%@'",name,columnName,v];
     FMResultSet *rs=[fmdb executeQuery:sql];
     NSMutableArray *list=[[NSMutableArray alloc] init];
@@ -160,7 +160,16 @@
         temp = nil;
     }
     
-    return list;
+    
+    if ([list count]>1) {
+        return list;
+    }else if([list count] == 1){
+        return list[0];
+    }else{
+        return nil;
+    }
+    
+    
 }
 
 -(NSMutableArray *) selectForNotColumn:(NSString *)columnName value:(NSString *)v tableName:(NSString *)name{

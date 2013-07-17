@@ -41,7 +41,7 @@
 
 -(NSMutableArray *)selectAll:(NSString *)tableName;
 
--(NSMutableArray *) selectForColumn:(NSString *)columnName value:(NSString *)v tableName:(NSString *)name;
+-(id) selectForColumn:(NSString *)columnName value:(NSString *)v tableName:(NSString *)name; 
 
 -(NSMutableArray *) selectForNotColumn:(NSString *)columnName value:(NSString *)v tableName:(NSString *)name;
 
