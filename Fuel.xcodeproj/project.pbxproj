@@ -26,6 +26,8 @@
 		18D742331793BCB700D6ADDB /* BaseDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D742321793BCB700D6ADDB /* BaseDB.m */; };
 		18D742351793BCC500D6ADDB /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D742341793BCC500D6ADDB /* libsqlite3.0.dylib */; };
 		18EB0D5817963E11008E45AC /* CLCarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB0D5717963E11008E45AC /* CLCarManager.m */; };
+		18EB0D5D1796659C008E45AC /* CLAddFuelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB0D5B1796659C008E45AC /* CLAddFuelViewController.m */; };
+		18EB0D5E1796659C008E45AC /* CLAddFuelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB0D5C1796659C008E45AC /* CLAddFuelViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,9 @@
 		18D742341793BCC500D6ADDB /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		18EB0D5617963E11008E45AC /* CLCarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLCarManager.h; sourceTree = "<group>"; };
 		18EB0D5717963E11008E45AC /* CLCarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLCarManager.m; sourceTree = "<group>"; };
+		18EB0D5A1796659C008E45AC /* CLAddFuelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAddFuelViewController.h; sourceTree = "<group>"; };
+		18EB0D5B1796659C008E45AC /* CLAddFuelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAddFuelViewController.m; sourceTree = "<group>"; };
+		18EB0D5C1796659C008E45AC /* CLAddFuelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLAddFuelViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +152,7 @@
 		18D7421F1793A35800D6ADDB /* Development */ = {
 			isa = PBXGroup;
 			children = (
+				18EB0D5917966587008E45AC /* AddFuelViewController */,
 				18D742201793A37C00D6ADDB /* AddCarViewController */,
 			);
 			path = Development;
@@ -182,6 +188,16 @@
 				18D742321793BCB700D6ADDB /* BaseDB.m */,
 			);
 			path = BaseDB;
+			sourceTree = "<group>";
+		};
+		18EB0D5917966587008E45AC /* AddFuelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18EB0D5A1796659C008E45AC /* CLAddFuelViewController.h */,
+				18EB0D5B1796659C008E45AC /* CLAddFuelViewController.m */,
+				18EB0D5C1796659C008E45AC /* CLAddFuelViewController.xib */,
+			);
+			path = AddFuelViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +258,7 @@
 				18D742121793A06700D6ADDB /* Default-568h@2x.png in Resources */,
 				18D742181793A06700D6ADDB /* CLViewController.xib in Resources */,
 				18D742251793A53B00D6ADDB /* CLAddCarViewController.xib in Resources */,
+				18EB0D5E1796659C008E45AC /* CLAddFuelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +278,7 @@
 				18D7422F1793BCB200D6ADDB /* FMResultSet.m in Sources */,
 				18D742331793BCB700D6ADDB /* BaseDB.m in Sources */,
 				18EB0D5817963E11008E45AC /* CLCarManager.m in Sources */,
+				18EB0D5D1796659C008E45AC /* CLAddFuelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

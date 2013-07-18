@@ -15,4 +15,6 @@
 
 +(void)saveNewCarInfo:(NSDictionary *)dict;  //保存新车辆基础信息
 
++(NSArray *)allCarInfo;
+
 @end
