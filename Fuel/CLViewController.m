@@ -9,7 +9,7 @@
 #import "CLViewController.h"
 #import "CLAddCarViewController.h"
 #import "CLCarManager.h"
-
+#import "CLAddFuelViewController.h"
 @interface CLViewController ()<UITableViewDataSource,UITableViewDelegate>{
     NSMutableDictionary *dict;
     NSMutableArray *carArray;
@@ -79,6 +79,10 @@
     [self presentModalViewController:addCarView animated:YES];
 }
 
+- (IBAction)addFuelAction:(id)sender {
+    CLAddFuelViewController *fuelView = [[CLAddFuelViewController alloc] init];
+    [self presentModalViewController:fuelView animated:YES];
+}
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
