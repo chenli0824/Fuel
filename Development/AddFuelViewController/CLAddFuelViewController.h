@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *totalPriceField;
 @property (weak, nonatomic) IBOutlet UITextField *totalMileageField;
 @property (weak, nonatomic) IBOutlet UIButton *fuelTypeButton;
+@property (weak, nonatomic) IBOutlet UIPickerView *fuelTypePicker;
 
 @end

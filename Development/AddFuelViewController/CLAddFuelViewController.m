@@ -8,7 +8,9 @@
 
 #import "CLAddFuelViewController.h"
 
-@interface CLAddFuelViewController ()
+@interface CLAddFuelViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>{
+    NSArray *fuelTypeArray;
+}
 
 @end
 
@@ -23,16 +25,53 @@
     return self;
 }
 - (IBAction)setDateAction:(id)sender {
-    if (_datePickerView.hidden) {
-        _datePickerView.hidden = NO;
+    if ([sender tag] == 0) {
+        if (_datePickerView.hidden) {
+            [self.totalPriceField endEditing:YES];
+            [self.totalMileageField endEditing:YES];
+            _fuelTypePicker.hidden = YES;
+            _datePicker.hidden = NO;
+            _datePickerView.hidden = NO;
+        
+        
+        }else{
+            _datePickerView.hidden = YES;
+        }
     }else{
-        _datePickerView.hidden = YES;
+    
+        if (_datePickerView.hidden) {
+            [self.totalPriceField endEditing:YES];
+            [self.totalMileageField endEditing:YES];
+            _fuelTypePicker.hidden = NO;
+            _datePicker.hidden = YES;
+            _datePickerView.hidden = NO;
+        }else{
+            _datePickerView.hidden = YES;
+        }
     }
+    
     
     
 }
 
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
 
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [fuelTypeArray count];
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return fuelTypeArray[row];
+}
+
+
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+
+
+}
 
 
 
@@ -49,11 +88,13 @@
                      forState:UIControlStateNormal];
     
     
-    
+    fuelTypeArray = [NSArray arrayWithObjects:@"90#",@"93#",@"97#",@"98#",@"0#", nil];
     
 }
 
 - (void)onDatePickerChanged: (UIDatePicker *)datePicker {
+    
+    
     
     NSDateFormatter* fmt = [[NSDateFormatter alloc] init];
     fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
@@ -66,6 +107,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (IBAction)endEditingAction:(id)sender {
+    [sender resignFirstResponder];
+}
+- (IBAction)editingBegin:(id)sender {
+    if (!self.datePickerView.hidden) {
+        self.datePickerView.hidden = YES;
+    }
+}
 
 
 -(void)keyboardWillShow:(NSNotification *)notif{
@@ -111,6 +160,7 @@
     [self setTotalPriceField:nil];
     [self setTotalMileageField:nil];
     [self setFuelTypeButton:nil];
+    [self setFuelTypePicker:nil];
     [super viewDidUnload];
 }
 @end
