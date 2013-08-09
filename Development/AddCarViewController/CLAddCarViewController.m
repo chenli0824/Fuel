@@ -33,9 +33,9 @@
 - (IBAction)saveAction:(id)sender {
     
     [CLCarManager saveNewCarInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"NULL",@"ID",
-                                  _nameTypeField.text,@"name",
-                                  _mileageField.text,@"mileage",
-                                  @"YES",@"login",nil]];
+                                  _nameTypeField.text,@"Name",
+                                  _mileageField.text,@"TotalMileage",
+                                  @"YES",@"Login",nil]];
     [self dismissModalViewControllerAnimated:YES];
 }
 

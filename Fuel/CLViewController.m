@@ -27,11 +27,13 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    NSLog(@"dict:%@",[CLCarManager readCurrCarInfo]);
-    [dict addEntriesFromDictionary:[CLCarManager readCurrCarInfo]];
-    self.mileageLabel.text = [NSString stringWithFormat:@"%@ kM",dict[@"mileage"]];
-    self.nameTypeLabel.text = dict[@"name"];
+    [dict addEntriesFromDictionary:[CLCarManager readLoginedCarInfo]];
+    if (dict) {
+            self.mileageLabel.text = [NSString stringWithFormat:@"%@ kM",dict[@"TotalMileage"]];
+            self.nameTypeLabel.text = dict[@"Name"];
+
+    }
+
     [super viewWillAppear:animated];
 }
 

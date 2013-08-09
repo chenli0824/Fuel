@@ -11,8 +11,11 @@
 @interface CLCarManager : NSObject
 
 
-+(NSDictionary *)readCurrCarInfo;  //读取当前车辆基础信息
++(NSDictionary *)readLoginedCarInfo;          //读取当前车辆基础信息
 
 +(void)saveNewCarInfo:(NSDictionary *)dict;  //保存新车辆基础信息
+
+
++(void)saveFuelInfo:(NSDictionary *)dict;
 
 @end

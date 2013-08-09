@@ -11,15 +11,19 @@
 
 @implementation CLCarManager
 
-+(NSDictionary *)readCurrCarInfo{
++(NSDictionary *)readLoginedCarInfo{
     NSDictionary *dict;
     BaseDB *baseDB = [[BaseDB alloc] init];
     [baseDB openDB];
     
-      dict = [NSDictionary dictionaryWithDictionary:[baseDB selectForColumn:@"login" value:@"YES" tableName:@"carInfo"]];
-    
+    id info = [baseDB selectForColumn:@"Login" value:@"YES" tableName:@"carInfo"];
     [baseDB closeDB];
     
+    if (info == nil) {
+        return nil;
+    }else{
+        dict = [NSDictionary dictionaryWithDictionary:info];
+    }
     return dict;
 }
 
@@ -27,16 +31,26 @@
     BaseDB *baseDB = [[BaseDB alloc] init];
     [baseDB openDB];
     if (![baseDB tableExists:@"carInfo"]) {
-        [baseDB createTable:@"carInfo" columns:@"ID INTEGER PRIMARY KEY,name TEXT,mileage TEXT,login TEXT"];
+        [baseDB createTable:@"carInfo" columns:@"ID INTEGER PRIMARY KEY,Name TEXT,TotalMileage TEXT,Login TEXT"];
     }
     
-    if ([self readCurrCarInfo]!= nil) {
-        [baseDB updateForColumn:@"login" value:@"NO" tableName:@"carInfo" whereColumn:@"login" whereValue:@"YES"];
+    if ([self readLoginedCarInfo]!= nil) {
+        [baseDB updateForColumn:@"Login" value:@"NO" tableName:@"carInfo" whereColumn:@"Login" whereValue:@"YES"];
     }
     
     [baseDB insertTableValues:@"carInfo" Values:dict];
     
     [baseDB closeDB];
+}
+
+
++(void)saveFuelInfo:(NSDictionary *)dict{
+    BaseDB *baseDB = [[BaseDB alloc] init];
+    [baseDB openDB];
+    if (![baseDB tableExists:@"fuelInfo"]) {
+        [baseDB createTable:@"fuelInfo" columns:@"ID INTEGER PRIMARY KEY,CarID TEXT,TotalMileage TEXT,FuelType TEXT,Time TEXT,Price TEXT"];
+    }
+
 }
 
 @end
